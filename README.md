@@ -25,15 +25,17 @@ A review of a gps position hold implementation
  - Behavior appears improved, but seems to be a bit erratic and we're still overshooting the target.
  - Because the GPS is only accurate to within 2.5 meters, we may be seeing inconsistent positions being recorded.
    Let's try keeping the last 4 positions and averaging it with the current to filter/dampen the current position.
+ - Updates to FlightCommandProcessor.h, GpsAdapter.h
  - [commit](https://github.com/jcleve/AeroQuad/commit/b88fce3cbee5024da0673f7171d349f4211b6c0d)
  - [video](https://www.youtube.com/watch?v=BOyLYXRIbcU)
 
 ##### Step 4 - Test, Validate, Improve, Repeat
  - Test different methods of finding the distance between two waypoints. Speed and accuracy are mutually exclusive.
  - Added logging to retrieve values for heading, distance, and time to calculate in a controlled environment. (Back yard)
- - Updates to GpsNavigator.h
+ - Updates to GpsNavigator.h, gpstest.ino
  - [commit](https://github.com/jcleve/AeroQuad/commit/714ef7701ddbdcd521d7437d9db7e78886663ec8)
  - Apply linear weight value to correction angle based on distance from target zone.
+ - Updates to GpsNavigator.h
  - [commit](https://github.com/jcleve/AeroQuad/commit/bb3c6d1628cbf0fd5eeb9a1a9c279d6f49f09314)
  - Instead of a linear function, let's try to determine a weight from a defined exponential curve (exponential growth function)
  - Updates to GpsNavigator.h
@@ -44,4 +46,3 @@ A review of a gps position hold implementation
  - Hold behavior is markedly improved. Adjust hold plane to make control adjustments more granular
  - [commit](https://github.com/jcleve/AeroQuad/commit/124c029e1ee7d504bb54de385c485b46beb477cf)
  - [video](https://www.youtube.com/watch?v=-53BUIlLRrY)
- 
